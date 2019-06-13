@@ -1,0 +1,53 @@
+  <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!--********** CHARSET **********-->
+    <meta charset="utf-8">
+    <!--********** CSS Stylesheet **********-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--********** viewport **********-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--********** Google Fonts **********-->
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <!--********** TITLE **********-->
+    <title>PBWPTG</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="headerStart" class="">
+        <h1>Pokemona Battle Without Pokemons The Game</h1>
+      </div>
+        <img src="http://serwer1816707.home.pl/grassTeamRocket.png" id="imgTeamR" class="transform" alt="">
+        <img src="http://serwer1816707.home.pl/grassAsh.png" id="imgAsh" class="transform" alt="">
+        <!--- bottomMenu ----->
+        <div id="bottomMenu">
+          <!--- CONSOL ----->
+          <div class="note">
+            <div class="rounds">
+              <p>Round: <span id="nrOfRounds">0</span></p>
+            </div>
+            <div class="punctation">
+              <p>You: <span id="playerPunctation">0</span> | Team Rocket: <span id="teamRocketPunctation">0</span></p>
+              <p><span id="roundsToWin">Click New Game To Start</span></p>
+            </div>
+            <hr id="boldLine">
+            <div>
+              <p id="output"></p>
+            </div>
+          </div>
+          <!--- Buttons ----->
+          <div class="buttons">
+            <div class="firstLine">
+              <button id="rockBTN" class="onOff" type="button" name="button">Rock</button>
+              <button id="paperBTN" class="onOff" type="button" name="button">Paper</button>
+            </div>
+            <div class="secondLine">
+              <button id="scissorsBTN" class="onOff" type="button" name="button">Scissors</button>
+              <button id="newGameBTN" type="button" name="button">New Game</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script  src="js/script.js"></script>
+  </body>
+</html>
