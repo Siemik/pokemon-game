@@ -251,3 +251,25 @@ function playerMoveText (move) {
     output.insertAdjacentHTML('afterEnd', 'you played SCISSORS <br>');
   }
 }
+//Check points before player Move
+function checkPointsBeforePlayerMove(dataMove) {
+  if(howManyPoints<=player || howManyPoints<=teamRocket || error==true) {
+    document.getElementById("roundsToWin").innerHTML = 'Click New Game.';
+    gameOver ();
+  }
+  // Check if win
+  else if (player === howManyPoints) {
+    gameOver ();
+    playerWin ();
+  }
+  // Check if lose
+  else  if (teamRocket === howManyPoints) {
+    gameOver ();
+    playerLose ();
+  }
+  else {
+    playerMove(dataMove);
+    round = round + 1;
+    document.getElementById("nrOfRounds").innerHTML = round;
+  }
+}
