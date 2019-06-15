@@ -14,7 +14,7 @@ var scissors=3;
 
 window.onload=function() {
 // Buttons
-  // 
+  //
   // Rock Button
   document.getElementById('rockBTN').addEventListener('click', function(){
     if(howManyPoints<=player || howManyPoints<=teamRocket || error==true) {
@@ -37,7 +37,7 @@ window.onload=function() {
       document.getElementById("nrOfRounds").innerHTML = round;
     }
   });
-  // 
+  //
   // Paper Button
   document.getElementById('paperBTN').addEventListener('click', function(){
     if(howManyPoints<=player || howManyPoints<=teamRocket || error==true) {
@@ -153,7 +153,7 @@ function playerMove(playerChoice) {
       }
     }
   }
-  
+
   // Player choosed rock
   else if (playerChoice===rock) {
     if (computerMove===scissors){
@@ -227,7 +227,7 @@ function pointForComputer () {
   teamRocket = teamRocket + 1;
   document.getElementById("teamRocketPunctation").innerHTML = teamRocket;
 }
-// Computer Move In Game (text for player) 
+// Computer Move In Game (text for player)
 function computerMoveText (move) {
   if (move==1) {
     output.insertAdjacentHTML('afterEnd', 'Team Rocket played PAPIER. <br><hr>');
@@ -239,7 +239,7 @@ function computerMoveText (move) {
     output.insertAdjacentHTML('afterEnd', 'Team Rocket played SCISSORS.<br><hr>');
   }
 }
-// Player Move In Game (text for player) 
+// Player Move In Game (text for player)
 function playerMoveText (move) {
   if (move==1) {
     output.insertAdjacentHTML('afterEnd', 'you played PAPIER <br>');
@@ -251,6 +251,3 @@ function playerMoveText (move) {
     output.insertAdjacentHTML('afterEnd', 'you played SCISSORS <br>');
   }
 }
-
-
-//Spytać o koljeność położenia funkcji.
