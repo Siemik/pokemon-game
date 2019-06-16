@@ -13,77 +13,6 @@ var rock=2;
 var scissors=3;
 
 window.onload=function() {
-// Buttons
-  //
-  // // Rock Button
-  // document.getElementById('rockBTN').addEventListener('click', function(){
-  //   if(howManyPoints<=player || howManyPoints<=teamRocket || error==true) {
-  //     document.getElementById("roundsToWin").innerHTML = 'Click New Game.';
-  //     gameOver ();
-  //   }
-  //   // Check if win
-  //   else if (player === howManyPoints) {
-  //     gameOver ();
-  //     playerWin ();
-  //   }
-  //   // Check if lose
-  //   else  if (teamRocket === howManyPoints) {
-  //     gameOver ();
-  //     playerLose ();
-  //   }
-  //   else {
-  //     playerMove(2);
-  //     round = round + 1;
-  //     document.getElementById("nrOfRounds").innerHTML = round;
-  //   }
-  // });
-  // //
-  // // Paper Button
-  // document.getElementById('paperBTN').addEventListener('click', function(){
-  //   if(howManyPoints<=player || howManyPoints<=teamRocket || error==true) {
-  //     document.getElementById("roundsToWin").innerHTML = 'Click New Game.';
-  //     gameOver ();
-  //   }
-  //   // Check if win
-  //   else if (player == howManyPoints) {
-  //     gameOver ();
-  //     playerWin ();
-  //   }
-  //   // Check if lose
-  //   else  if (teamRocket === howManyPoints) {
-  //     gameOver ();
-  //     playerLose ();
-  //   }
-  //   else {
-  //     playerMove(1);
-  //     round = round + 1;
-  //     document.getElementById("nrOfRounds").innerHTML = round;
-  //   }
-  // });
-  // //
-  // // Scissors Button
-  // document.getElementById('scissorsBTN').addEventListener('click', function(){
-  //   if(howManyPoints<=player || howManyPoints<=teamRocket || error==true) {
-  //     document.getElementById("roundsToWin").innerHTML = 'Click New Game.';
-  //     gameOver ();
-  //   }
-  //   // Check if win
-  //   else if (player === howManyPoints) {
-  //     gameOver ();
-  //     playerWin ();
-  //   }
-  //   // Check if lose
-  //   else  if (teamRocket === howManyPoints) {
-  //     gameOver ();
-  //     playerLose ();
-  //   }
-  //   else {
-  //     playerMove(3);
-  //     round = round + 1;
-  //     document.getElementById("nrOfRounds").innerHTML = round;
-  //   }
-  // });
-    //
     // New Game
   document.getElementById('newGameBTN').addEventListener('click', function(){
     howManyPoints = window.prompt('Points for a win');
@@ -274,9 +203,7 @@ function checkPointsBeforePlayerMove(dataMove) {
   }
 }
 //Loop With Events
-
 var allPlayerMoveClasses = document.querySelectorAll('.player-move');
-
   for(var i = 0; i < allPlayerMoveClasses.length; i++){
         // Pobiera wszystkie klasy
         var abc = allPlayerMoveClasses[i].getAttribute('data-move');
@@ -286,5 +213,3 @@ var allPlayerMoveClasses = document.querySelectorAll('.player-move');
           checkPointsBeforePlayerMove(PRS[this.getAttribute('data-move')]);
         })
   }
-
-//End Loop With Events
