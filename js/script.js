@@ -1,25 +1,25 @@
 'use strict';
-// Global Var
-var howManyPoints = 0;
-var round = 0;
-var player = 0;
-var teamRocket = 0;
-var playerChoice;
-var computerMove;
-var error= false;
-
-var papier=1;
-var rock=2;
-var scissors=3;
+var params = {
+  howManyPoints: 0,
+  round: 0,
+  player: 0,
+  teamRocket: 0,
+  playerChoice: 0,
+  computerMove: 0,
+  error: false,
+  papier: 1,
+  rock: 2,
+  scissors: 3
+};
 
 window.onload=function() {
     // New Game
   document.getElementById('newGameBTN').addEventListener('click', function(){
-    howManyPoints = window.prompt('Points for a win');
+    params.howManyPoints = window.prompt('Points for a win');
     // Error Check
-    if(howManyPoints===null || howManyPoints==='' || isNaN(howManyPoints)) {
+    if(params.howManyPoints===null || params.howManyPoints==='' || isNaN(params.howManyPoints)) {
       document.getElementById("roundsToWin").innerHTML = 'Something went wrong. Try again.';
-      error=true;
+      params.error=true;
     }
     else {
       // CSS Animation
@@ -31,14 +31,14 @@ window.onload=function() {
       headerAnimation.classList.add("onOff");
       // refresh
       // round
-      round = 0;
-      document.getElementById("nrOfRounds").innerHTML = round;
+      params.round = 0;
+      document.getElementById("nrOfRounds").innerHTML = params.round;
       // player
-      player = 0;
-      document.getElementById("playerPunctation").innerHTML = player;
+      params.player = 0;
+      document.getElementById("playerPunctation").innerHTML = params.player;
       // teamRocket
-      teamRocket = 0;
-      document.getElementById("teamRocketPunctation").innerHTML = teamRocket;
+      params.teamRocket = 0;
+      document.getElementById("teamRocketPunctation").innerHTML = params.teamRocket;
 
       var showRockBTNs = document.getElementById("rockBTN");
       var showPapierBTNs = document.getElementById("paperBTN");
@@ -46,37 +46,37 @@ window.onload=function() {
       showRockBTNs.classList.remove("onOff");
       showPapierBTNs.classList.remove("onOff");
       showScissorsBTNs.classList.remove("onOff");
-      document.getElementById("roundsToWin").innerHTML = 'The fight lasts up to ' + howManyPoints + ' points';
+      document.getElementById("roundsToWin").innerHTML = 'The fight lasts up to ' + params.howManyPoints + ' points';
     }
 });
-}
+};
 
 // functions
 function playerMove(playerChoice) {
-  var computerMove = Math.floor((Math.random() * 3) + 1);
-  if (playerChoice - computerMove === 0) {
+  params.computerMove = Math.floor((Math.random() * 3) + 1);
+  if (playerChoice - params.computerMove === 0) {
     output.insertAdjacentHTML('afterEnd', 'Draw! Team Rocket played the same <hr>');
   }
   // Player choosed papier
-  else if (playerChoice===papier) {
-    if (computerMove===rock){
+  else if (playerChoice===params.papier) {
+    if (params.computerMove===params.rock){
       // win
-      computerMoveText (computerMove);
+      computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
         // Check if win
-        if (player == howManyPoints) {
+        if (params.player == params.howManyPoints) {
           gameOver ();
           playerWin ();
         }
     }
-    else if (computerMove===scissors){
+    else if (params.computerMove===params.scissors){
       // lose
-      computerMoveText (computerMove);
+      computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
       // Chec if lose
-      if (teamRocket == howManyPoints) {
+      if (params.teamRocket == params.howManyPoints) {
           gameOver ();
           playerLose ();
       }
@@ -84,78 +84,78 @@ function playerMove(playerChoice) {
   }
 
   // Player choosed rock
-  else if (playerChoice===rock) {
-    if (computerMove===scissors){
+  else if (playerChoice===params.rock) {
+    if (params.computerMove===params.scissors){
       // win
-      computerMoveText (computerMove);
+      computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
         // Check if win
-        if (player == howManyPoints) {
+        if (params.player == params.howManyPoints) {
           gameOver ();
           playerWin ();
         }
     }
-    else if (computerMove===papier){
+    else if (params.computerMove===params.papier){
       // lose
-      computerMoveText (computerMove);
+      computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
         // Chec if lose
-        if (teamRocket == howManyPoints) {
+        if (params.teamRocket == params.howManyPoints) {
           gameOver ();
           playerLose ();
         }
     }
   }
   // Player choosed scissor
-  else if (playerChoice===scissors) {
-    if (computerMove===papier){
+  else if (playerChoice===params.scissors) {
+    if (params.computerMove===params.papier){
       // win
-      computerMoveText (computerMove);
+      computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
         // Check if win
-        if (player == howManyPoints) {
+        if (params.player == params.howManyPoints) {
           gameOver ();
           playerWin ();
         }
     }
-    else if (computerMove===rock){
+    else if (params.computerMove===params.rock){
       // lose
-      computerMoveText (computerMove);
+      computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
         // Check if lose
-        if (teamRocket == howManyPoints) {
+        if (params.teamRocket == params.howManyPoints) {
           gameOver ();
           playerLose ();
         }
      }
   }
-}
+};
 // Player Win
 function playerWin () {
   output.insertAdjacentHTML('afterEnd', 'YOU WON THE ENTIRE GAME!!!');
-}
+};
 // Player Lose
 function  playerLose () {
   output.insertAdjacentHTML('afterEnd', 'YOU LOSE THE ENTIRE GAME!!!');
-}
+};
 // Game Over Alert
 function gameOver () {
   output.insertAdjacentHTML('afterEnd', 'Please press the new game button!<hr>');
-}
+};
 // 1 Point For Player
 function pointForPlayer () {
-  player = player + 1;
-  document.getElementById("playerPunctation").innerHTML = player;
-}
+  params.player = params.player + 1;
+  document.getElementById("playerPunctation").innerHTML = params.player;
+};
 // 1 Point for Computer
 function pointForComputer () {
-  teamRocket = teamRocket + 1;
-  document.getElementById("teamRocketPunctation").innerHTML = teamRocket;
-}
+  params.teamRocket = params.teamRocket + 1;
+  document.getElementById("teamRocketPunctation").innerHTML = params.teamRocket;
+};
 // Computer Move In Game (text for player)
 function computerMoveText (move) {
   if (move==1) {
@@ -167,7 +167,7 @@ function computerMoveText (move) {
   else if (move==3) {
     output.insertAdjacentHTML('afterEnd', 'Team Rocket played SCISSORS.<br><hr>');
   }
-}
+};
 // Player Move In Game (text for player)
 function playerMoveText (move) {
   if (move==1) {
@@ -179,29 +179,29 @@ function playerMoveText (move) {
   else if (move==3) {
     output.insertAdjacentHTML('afterEnd', 'you played SCISSORS <br>');
   }
-}
+};
 //Check points before player Move
 function checkPointsBeforePlayerMove(dataMove) {
-  if(howManyPoints<=player || howManyPoints<=teamRocket || error==true) {
+  if(params.howManyPoints<=params.player || params.howManyPoints<=params.teamRocket || params.error==true) {
     document.getElementById("roundsToWin").innerHTML = 'Click New Game.';
     gameOver ();
   }
   // Check if win
-  else if (player === howManyPoints) {
+  else if (params.player === params.howManyPoints) {
     gameOver ();
     playerWin ();
   }
   // Check if lose
-  else  if (teamRocket === howManyPoints) {
+  else  if (params.teamRocket === params.howManyPoints) {
     gameOver ();
     playerLose ();
   }
   else {
     playerMove(dataMove);
-    round = round + 1;
-    document.getElementById("nrOfRounds").innerHTML = round;
+    params.round = params.round + 1;
+    document.getElementById("nrOfRounds").innerHTML = params.round;
   }
-}
+};
 //Loop With Events
 var allPlayerMoveClasses = document.querySelectorAll('.player-move');
   for(var i = 0; i < allPlayerMoveClasses.length; i++){
@@ -212,4 +212,4 @@ var allPlayerMoveClasses = document.querySelectorAll('.player-move');
           var PRS = {papier: 1, rock: 2, scissors: 3};
           checkPointsBeforePlayerMove(PRS[this.getAttribute('data-move')]);
         })
-  }
+  };
