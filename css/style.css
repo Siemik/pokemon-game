@@ -1,235 +1,68 @@
-body {
-  color: white;
-  font-family: 'VT323', monospace;
-  background-image: linear-gradient(0deg, #e1f9e1 50%, #f5fbff 83%, #b8d8ed 93%);
-  margin: 0;
-  padding: 0;
-}
+body { color: white; font-family: 'VT323', monospace; background-image: linear-gradient(0deg, #e1f9e1 50%, #f5fbff 83%, #b8d8ed 93%); margin: 0; padding: 0; }
 
-.container {
-  background-image: url("http://serwer1816707.home.pl/strip.png");
-  background-repeat: repeat-y;
-  background-size: 100% 20px;
-  height: 100vh;
-  width: 100vw;
-}
+.container { background-image: url("http://serwer1816707.home.pl/strip.png"); background-repeat: repeat-y; background-size: 100% 20px; height: 100vh; width: 100vw; }
 
-#headerStart {
-  font-size: 40px;
-  color: #C05C4D;
-  text-align: center;
-}
+#headerStart { font-size: 40px; color: #C05C4D; text-align: center; }
 
-#headerStart > h1 {
-  margin: 0;
-}
+#headerStart > h1 { margin: 0; }
 
-#imgTeamR {
-  position: fixed;
-  width: 35%;
-  height: auto;
-  top: 50px;
-  right: -800px;
-  transition: 1.5s linear 0s 1 alternate;
-}
+#imgTeamR { position: fixed; width: 35%; height: auto; top: 50px; right: -800px; transition: 1.5s linear 0s 1 alternate; }
 
-.transform {
-  transition: all 2s ease;
-}
+.transform { transition: all 2s ease; }
 
-.transform-active-teamRocket {
-  transform: translateX(-900px);
-}
+.transform-active-teamRocket { transform: translateX(-900px); }
 
-#imgAsh {
-  position: fixed;
-  width: 50%;
-  height: auto;
-  left: -950px;
-  bottom: 206px;
-}
+#imgAsh { position: fixed; width: 50%; height: auto; left: -950px; bottom: 206px; }
 
-.transform {
-  transition: all 2s ease;
-}
+.transform { transition: all 2s ease; }
 
-.transform-active-ash {
-  transform: translateX(1050px);
-}
+.transform-active-ash { transform: translateX(1050px); }
 
-#bottomMenu {
-  background-color: #E0E5E8;
-  position: fixed;
-  left: 0;
-  right: 0;
-  display: flex;
-  display: -webkit-flex;
-  bottom: 0;
-  height: 200px;
-  width: calc(100vw - 12px);
-  border: 6px double black;
-  border-radius: 5px;
-}
+#bottomMenu { background-color: #E0E5E8; position: fixed; left: 0; right: 0; display: flex; display: -webkit-flex; bottom: 0; height: 200px; width: calc(100vw - 12px); border: 6px double black; border-radius: 5px; }
 
-.note {
-  position: relative;
-  flex: 1;
-  order: 1;
-  text-align: center;
-  font-size: 25px;
-  color: black;
-  box-sizing: border-box;
-}
+.note { position: relative; flex: 1; order: 1; text-align: center; font-size: 25px; color: black; box-sizing: border-box; }
 
-.rounds, .punctation {
-  line-height: 1px;
-  font-size: 30px;
-}
+.rounds, .punctation { line-height: 1px; font-size: 30px; }
 
-.rounds {
-  font-size: 40px;
-}
+.rounds { font-size: 40px; }
 
-.rounds > p {
-  margin: 20px;
-}
+.rounds > p { margin: 20px; }
 
-#boldLine {
-  border: 1px solid black;
-  margin: 0 5px;
-  display: none;
-}
+#boldLine { border: 1px solid black; margin: 0 5px; display: none; }
 
-.buttons {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  order: 2;
-  box-sizing: border-box;
-}
+.buttons { display: -webkit-flex; display: flex; flex-direction: column; flex: 1; order: 2; box-sizing: border-box; }
 
-.firstLine, .secondLine {
-  display: -webkit-flex;
-  flex: 2;
-  order: 1;
-  align-content: stretch;
-}
+.firstLine, .secondLine { display: -webkit-flex; flex: 2; order: 1; align-content: stretch; }
 
-.buttons button {
-  padding: 20px 40px;
-  background-color: #C05C4D;
-  color: white;
-  flex: 1;
-  margin: 5px;
-  border-radius: 8px;
-  font-family: 'VT323', monospace;
-  font-size: 40px;
-  text-shadow: 2px 2px black;
-}
+.buttons button { padding: 20px 40px; background-color: #C05C4D; color: white; flex: 1; margin: 5px; border-radius: 8px; font-family: 'VT323', monospace; font-size: 40px; text-shadow: 2px 2px black; }
 
-.buttons button:hover {
-  background-color: #ca776a;
-}
+.buttons button:hover { background-color: #ca776a; }
 
-.onOff {
-  display: none;
-}
+.onOff { display: none; }
 
-#newGameBTN {
-  background-color: #9b9999;
-}
+#newGameBTN { background-color: #9b9999; }
 
-#newGameBTN:hover {
-  background-color: #cecece;
-}
+#newGameBTN:hover { background-color: #cecece; }
 
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-}
+.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); }
 
-.overlay.show {
-  display: block;
-}
+.overlay.show { display: block; }
 
-.modal {
-  display: none;
-  background: #E0E5E8;
-  width: 400px;
-  width-height: 200px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  transform-border: 6px double black;
-  transform-border-radius: 5px;
-  transform-color: black;
-}
+.modal { font-size: 22px; display: none; background: #E0E5E8; border: 6px double black; border-radius: 5px; color: black; height: 200px; width: 400px; position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); }
 
-.modal.show {
-  display: block;
-}
+.modal.show { display: block; }
 
-.modal .close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 5px;
-  color: #000;
-  text-decoration: none;
-}
+.modal .close { position: absolute; right: 0; top: 0; padding: 5px; color: #000; text-decoration: none; }
 
-.modal header {
-  font-size: 20px;
-  line-height: 30px;
-  min-height: 30px;
-  font-weight: bold;
-  padding: 0 30px;
-}
+.modal header { font-size: 35px; line-height: 30px; min-height: 30px; padding: 10px 30px; }
 
-.modal .content {
-  min-height: 30px;
-  padding: 5px 30px;
-}
+.modal .content { min-height: 30px; padding: 5px 30px; }
 
-@media (max-width: 800px) {
-  .buttons button {
-    font-size: 30px;
-    padding: 2px 2px;
-  }
-  .note {
-    display: inline-block;
-    flex: 1;
-    order: 1;
-    font-size: 15px;
-  }
-  .rounds, .punctation {
-    line-height: 0px;
-    font-size: 15px;
-  }
-  .rounds {
-    font-size: 20px;
-  }
-  .rounds > p {
-    margin: 10px;
-  }
-  #imgAsh {
-    width: 90%;
-    left: 20px;
-  }
-  #imgTeamR {
-    width: 55%;
-    right: 5px;
-  }
-  #boldLine {
-    display: inline-block;
-  }
-}
-
-/*# sourceMappingURL=style.css.map */
+@media (max-width: 800px) { .buttons button { font-size: 30px; padding: 2px 2px; }
+  .note { display: inline-block; flex: 1; order: 1; font-size: 15px; }
+  .rounds, .punctation { line-height: 0px; font-size: 15px; }
+  .rounds { font-size: 20px; }
+  .rounds > p { margin: 10px; }
+  #imgAsh { width: 90%; left: 20px; }
+  #imgTeamR { width: 55%; right: 5px; }
+  #boldLine { display: inline-block; } }
