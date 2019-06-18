@@ -16,6 +16,7 @@ var params = {
 window.onload=function() {
     // New Game
   document.getElementById('newGameBTN').addEventListener('click', function(){
+    params.progress.length  = 0;
     params.howManyPoints = window.prompt('Points for a win');
     // Error Check
     if(params.howManyPoints===null || params.howManyPoints==='' || isNaN(params.howManyPoints)) {
