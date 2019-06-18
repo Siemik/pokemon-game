@@ -55,16 +55,12 @@ window.onload=function() {
 
 // functions
 function playerMove(playerChoice) {
-  //Dodaje runde do tabeli   [1 kolumna]
   params.progress.push(params.round+1);
-  //Dodaje kamieć/papier/nożycę do tabeli   [2 kolumna]
   params.progress.push(playerChoice);
   params.computerMove = Math.floor((Math.random() * 3) + 1);
-  //Dodaje ruch komputera do tabelu   [3 kolumna]
   params.progress.push(params.computerMove);
   if (playerChoice - params.computerMove === 0) {
     output.insertAdjacentHTML('afterEnd', 'Draw! Team Rocket played the same <hr>');
-    //Dodaje remis do tabelu   [4 kolumna]
     params.progress.push('Drawn');
   }
   // Player choosed papier
@@ -74,7 +70,6 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
-      // Dodaje wygraną    [4 kolumna]
       params.progress.push('Won');
         // Check if win
         if (params.player == params.howManyPoints) {
@@ -88,7 +83,6 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
-      // Dodaje przegraną    [4 kolumna]
       params.progress.push('Lost');
       // Check if lose
       if (params.teamRocket == params.howManyPoints) {
@@ -106,7 +100,6 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
-      // Dodaje wygraną    [4 kolumna]
       params.progress.push('Won');
         // Check if win
         if (params.player == params.howManyPoints) {
@@ -120,7 +113,6 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
-      // Dodaje Przegraną    [4 kolumna]
       params.progress.push('Lost');
         // Chec if lose
         if (params.teamRocket == params.howManyPoints) {
@@ -137,7 +129,6 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
-      // Dodaje wygraną    [4 kolumna]
       params.progress.push('Won');
         // Check if win
         if (params.player == params.howManyPoints) {
@@ -151,7 +142,6 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
-      // Dodaje przegraną    [4 kolumna]
       params.progress.push('Lost');
         // Check if lose
         if (params.teamRocket == params.howManyPoints) {
@@ -161,14 +151,12 @@ function playerMove(playerChoice) {
         }
      }
   }
-  //Czy mogę użyć tego kodu jak uniwersalna funkcja pod koniec kodu?
   params.progress.push(params.player +':'+ params.teamRocket);
   console.log(params.progress);
 };
 // Player Win
 function playerWin () {
   output.insertAdjacentHTML('afterEnd', 'YOU WON THE ENTIRE GAME!!!');
-  //winnerinfo.insertAdjacentHTML('afterbegin', 'YOU WON THE ENTIRE GAME!!!');
   document.getElementById('winnerheder').innerHTML = '<p>YOU WON THE ENTIRE GAME!!!<p>';
   creatSummaryGameTable ();
   document.getElementById('modal-overlay').classList.add("show");
@@ -177,7 +165,6 @@ function playerWin () {
 // Player Lose
 function  playerLose () {
   output.insertAdjacentHTML('afterEnd', 'YOU LOSE THE ENTIRE GAME!!!');
-  //winnerinfo.insertAdjacentHTML('afterbegin', 'YOU LOSE THE ENTIRE GAME!!!');
   document.getElementById('winnerheder').innerHTML = '<p>YOU LOST THE ENTIRE GAME!!!</p>';
   creatSummaryGameTable ();
   document.getElementById('modal-overlay').classList.add("show");
@@ -258,48 +245,30 @@ document.getElementById('winnerinfo').innerHTML = summaryGameTable;
 //Loop With Events
 var allPlayerMoveClasses = document.querySelectorAll('.player-move');
   for(var i = 0; i < allPlayerMoveClasses.length; i++){
-        // Pobiera wszystkie klasy
         var abc = allPlayerMoveClasses[i].getAttribute('data-move');
-        //Dodaje event
         document.getElementById(allPlayerMoveClasses[i].id).addEventListener('click', function() {
           var PRS = {papier: 1, rock: 2, scissors: 3};
           checkPointsBeforePlayerMove(PRS[this.getAttribute('data-move')]);
         })
   };
-
-
+// Modal
   var showModal = function(event){
 		event.preventDefault();
 		document.querySelector('#modal-overlay').classList.add('show');
 	};
-
-	// Mimo, że obecnie mamy tylko jeden link, stosujemy kod dla wielu linków. W ten sposób nie będzie trzeba go zmieniać, kiedy zechcemy mieć więcej linków lub guzików otwierających modale
-
 	var modalLinks = document.querySelectorAll('.show-modal');
-
 	for(var i = 0; i < modalLinks.length; i++){
 		modalLinks[i].addEventListener('click', showModal);
 	}
-
-	// Dodajemy też funkcję zamykającą modal, oraz przywiązujemy ją do kliknięć na elemencie z klasą "close".
-
 	var hideModal = function(event){
 		event.preventDefault();
 		document.querySelector('#modal-overlay').classList.remove('show');
 	};
-
 	var closeButtons = document.querySelectorAll('.modal .close');
-
 	for(var i = 0; i < closeButtons.length; i++){
 		closeButtons[i].addEventListener('click', hideModal);
 	}
-
-	// Dobrą praktyką jest również umożliwianie zamykania modala poprzez kliknięcie w overlay.
-
 	document.querySelector('#modal-overlay').addEventListener('click', hideModal);
-
-	// Musimy jednak pamiętać, aby zablokować propagację kliknięć z samego modala - inaczej każde kliknięcie wewnątrz modala również zamykałoby go.
-
 	var modals = document.querySelectorAll('.modal');
 
 	for(var i = 0; i < modals.length; i++){
