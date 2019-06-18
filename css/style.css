@@ -48,7 +48,7 @@ body { color: white; font-family: 'VT323', monospace; background-image: linear-g
 
 .overlay.show { display: block; }
 
-.modal { font-size: 22px; display: none; background: #E0E5E8; border: 6px double black; border-radius: 5px; color: black; height: 200px; width: 400px; position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); }
+.modal { font-size: 22px; display: none; background: #E0E5E8; border: 6px double black; border-radius: 5px; color: black; min-height: 200px; min-width: 350px; position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); }
 
 .modal.show { display: block; }
 
@@ -57,6 +57,12 @@ body { color: white; font-family: 'VT323', monospace; background-image: linear-g
 .modal header { font-size: 35px; line-height: 30px; min-height: 30px; padding: 10px 30px; }
 
 .modal .content { min-height: 30px; padding: 5px 30px; }
+
+.modal table { border-collapse: collapse; }
+
+.modal table, .modal th, .modal td { border: 1px solid gray; padding: 5px; }
+
+.modal #winnerheder { font-size: 30px; }
 
 @media (max-width: 800px) { .buttons button { font-size: 30px; padding: 2px 2px; }
   .note { display: inline-block; flex: 1; order: 1; font-size: 15px; }

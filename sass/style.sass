@@ -135,8 +135,8 @@ body
   border: 6px double black
   border-radius: 5px
   color: black
-  height: 200px
-  width: 400px
+  min-height: 200px
+  min-width: 350px
   position: absolute
   top: 50%
   left: 50%
@@ -158,7 +158,13 @@ body
   .content
     min-height: 30px
     padding: 5px 30px
-
+  table
+    border-collapse: collapse
+  table, th, td
+    border: 1px solid gray
+    padding: 5px
+  #winnerheder
+    font-size: 30px
 @media (max-width: 800px)
   .buttons button
     font-size: 30px

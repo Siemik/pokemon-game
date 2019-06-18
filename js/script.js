@@ -9,7 +9,8 @@ var params = {
   error: false,
   papier: 1,
   rock: 2,
-  scissors: 3
+  scissors: 3,
+  progress: []
 };
 
 window.onload=function() {
@@ -53,9 +54,17 @@ window.onload=function() {
 
 // functions
 function playerMove(playerChoice) {
+  //Dodaje runde do tabeli   [1 kolumna]
+  params.progress.push(params.round+1);
+  //Dodaje kamieć/papier/nożycę do tabeli   [2 kolumna]
+  params.progress.push(playerChoice);
   params.computerMove = Math.floor((Math.random() * 3) + 1);
+  //Dodaje ruch komputera do tabelu   [3 kolumna]
+  params.progress.push(params.computerMove);
   if (playerChoice - params.computerMove === 0) {
     output.insertAdjacentHTML('afterEnd', 'Draw! Team Rocket played the same <hr>');
+    //Dodaje remis do tabelu   [4 kolumna]
+    params.progress.push('Drawn');
   }
   // Player choosed papier
   else if (playerChoice===params.papier) {
@@ -64,8 +73,11 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
+      // Dodaje wygraną    [4 kolumna]
+      params.progress.push('Won');
         // Check if win
         if (params.player == params.howManyPoints) {
+          params.progress.push(params.player +':'+ params.teamRocket);
           gameOver ();
           playerWin ();
         }
@@ -75,8 +87,11 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
-      // Chec if lose
+      // Dodaje przegraną    [4 kolumna]
+      params.progress.push('Lost');
+      // Check if lose
       if (params.teamRocket == params.howManyPoints) {
+        params.progress.push(params.player +':'+ params.teamRocket);
           gameOver ();
           playerLose ();
       }
@@ -90,8 +105,11 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
+      // Dodaje wygraną    [4 kolumna]
+      params.progress.push('Won');
         // Check if win
         if (params.player == params.howManyPoints) {
+          params.progress.push(params.player +':'+ params.teamRocket);
           gameOver ();
           playerWin ();
         }
@@ -101,8 +119,11 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
+      // Dodaje Przegraną    [4 kolumna]
+      params.progress.push('Lost');
         // Chec if lose
         if (params.teamRocket == params.howManyPoints) {
+          params.progress.push(params.player +':'+ params.teamRocket);
           gameOver ();
           playerLose ();
         }
@@ -115,8 +136,11 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForPlayer ();
+      // Dodaje wygraną    [4 kolumna]
+      params.progress.push('Won');
         // Check if win
         if (params.player == params.howManyPoints) {
+          params.progress.push(params.player +':'+ params.teamRocket);
           gameOver ();
           playerWin ();
         }
@@ -126,25 +150,35 @@ function playerMove(playerChoice) {
       computerMoveText (params.computerMove);
       playerMoveText (playerChoice);
       pointForComputer ();
+      // Dodaje przegraną    [4 kolumna]
+      params.progress.push('Lost');
         // Check if lose
         if (params.teamRocket == params.howManyPoints) {
+          params.progress.push(params.player +':'+ params.teamRocket);
           gameOver ();
           playerLose ();
         }
      }
   }
+  //Czy mogę użyć tego kodu jak uniwersalna funkcja pod koniec kodu?
+  params.progress.push(params.player +':'+ params.teamRocket);
+  console.log(params.progress);
 };
 // Player Win
 function playerWin () {
   output.insertAdjacentHTML('afterEnd', 'YOU WON THE ENTIRE GAME!!!');
-  winnerinfo.insertAdjacentHTML('afterbegin', 'YOU WON THE ENTIRE GAME!!!');
+  //winnerinfo.insertAdjacentHTML('afterbegin', 'YOU WON THE ENTIRE GAME!!!');
+  document.getElementById('winnerheder').innerHTML = '<p>YOU WON THE ENTIRE GAME!!!<p>';
+  creatSummaryGameTable ();
   document.getElementById('modal-overlay').classList.add("show");
   document.getElementById('modal-statistic').classList.add("show");
 };
 // Player Lose
 function  playerLose () {
   output.insertAdjacentHTML('afterEnd', 'YOU LOSE THE ENTIRE GAME!!!');
-  winnerinfo.insertAdjacentHTML('afterbegin', 'YOU LOSE THE ENTIRE GAME!!!');
+  //winnerinfo.insertAdjacentHTML('afterbegin', 'YOU LOSE THE ENTIRE GAME!!!');
+  document.getElementById('winnerheder').innerHTML = '<p>YOU LOST THE ENTIRE GAME!!!</p>';
+  creatSummaryGameTable ();
   document.getElementById('modal-overlay').classList.add("show");
   document.getElementById('modal-statistic').classList.add("show");
 };
@@ -208,6 +242,18 @@ function checkPointsBeforePlayerMove(dataMove) {
     document.getElementById("nrOfRounds").innerHTML = params.round;
   }
 };
+// Creat table
+function creatSummaryGameTable () {
+var summaryGameTable = "<table><tbody><tr><td>Rounds</td><td>Player Move</td><td>Team R Move</td><td>Outcome</td><td>Score</td></tr><tr>";
+for (var i = 1; i <= params.progress.length; i++) {
+    if (i % 5 == 1 && i != 1) {
+        summaryGameTable += "</tr><tr>";
+    }
+    summaryGameTable += "<td>" + params.progress[i-1] + "</td>";
+}
+summaryGameTable += "</tr></tbody></table>";
+document.getElementById('winnerinfo').innerHTML = summaryGameTable;
+}
 //Loop With Events
 var allPlayerMoveClasses = document.querySelectorAll('.player-move');
   for(var i = 0; i < allPlayerMoveClasses.length; i++){
