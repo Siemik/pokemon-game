@@ -137,12 +137,14 @@ function playerMove(playerChoice) {
 // Player Win
 function playerWin () {
   output.insertAdjacentHTML('afterEnd', 'YOU WON THE ENTIRE GAME!!!');
+  winnerinfo.insertAdjacentHTML('afterbegin', 'YOU WON THE ENTIRE GAME!!!');
   document.getElementById('modal-overlay').classList.add("show");
   document.getElementById('modal-statistic').classList.add("show");
 };
 // Player Lose
 function  playerLose () {
   output.insertAdjacentHTML('afterEnd', 'YOU LOSE THE ENTIRE GAME!!!');
+  winnerinfo.insertAdjacentHTML('afterbegin', 'YOU LOSE THE ENTIRE GAME!!!');
   document.getElementById('modal-overlay').classList.add("show");
   document.getElementById('modal-statistic').classList.add("show");
 };
