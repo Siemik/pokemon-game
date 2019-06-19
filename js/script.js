@@ -53,7 +53,6 @@ window.onload=function() {
       showRockBTNs.classList.remove("onOff");
       showPapierBTNs.classList.remove("onOff");
       showScissorsBTNs.classList.remove("onOff");
-      document.getElementById("roundsToWin").innerHTML = 'The fight lasts up to ' + params.howManyPoints + ' points';
     }
 });
 };
@@ -273,6 +272,7 @@ function newGameModal () {
       else {
       document.getElementById('modal-overlay-new-game').classList.remove('show');
       document.getElementById('modal-new-game').classList.remove('show');
+      document.getElementById("roundsToWin").innerHTML = 'The fight lasts up to ' + params.howManyPoints + ' points';
       }
       // nickModal.value
 }
