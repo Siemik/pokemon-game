@@ -47,7 +47,21 @@
             </div>
           </div>
         </div>
-        <!-- Modal -->
+        <!-- New Game -->
+        <div class="overlay show" id="modal-overlay">
+          <div class="modal show" id="modal-statistic">
+            <a href="#" class="close">x</a>
+            <header>Game Summary</header>
+            <div class="content">
+              <p>Enter your nick</p>
+              <input type="text" name="enter" class="enter" value="" id="nickModal"/>
+              <p>Enter rounds</p>
+              <input type="text" name="enter" class="enter" value="" id="roundsModal"/>
+              <input type="button" value="click" onclick="newGameModal();"/>
+            </div>
+          </div>
+        </div>
+        <!-- Summary Game Modal -->
         <div class="overlay" id="modal-overlay">
           <div class="modal" id="modal-statistic">
             <a href="#" class="close">x</a>

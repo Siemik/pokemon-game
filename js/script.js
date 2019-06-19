@@ -251,7 +251,15 @@ var allPlayerMoveClasses = document.querySelectorAll('.player-move');
           checkPointsBeforePlayerMove(PRS[this.getAttribute('data-move')]);
         })
   };
-// Modal
+//New Game Modal
+function newGameModal () {
+      var nick = document.getElementById('nickModal').value;
+      console.log(nick);
+      var rounds = document.getElementById('roundsModal').value;
+      console.log(rounds);
+      // nickModal.value
+}
+//Summary Game Modal
   var showModal = function(event){
 		event.preventDefault();
 		document.querySelector('#modal-overlay').classList.add('show');
