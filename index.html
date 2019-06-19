@@ -48,16 +48,17 @@
           </div>
         </div>
         <!-- New Game -->
-        <div class="overlay show" id="modal-overlay">
-          <div class="modal show" id="modal-statistic">
+        <div class="overlay" id="modal-overlay-new-game">
+          <div class="modal" id="modal-new-game">
             <a href="#" class="close">x</a>
-            <header>Game Summary</header>
+            <header>Let's Play!</header>
             <div class="content">
               <p>Enter your nick</p>
               <input type="text" name="enter" class="enter" value="" id="nickModal"/>
-              <p>Enter rounds</p>
+              <p>Enter points to win</p>
               <input type="text" name="enter" class="enter" value="" id="roundsModal"/>
               <input type="button" value="click" onclick="newGameModal();"/>
+              <p id="errorInfoNewGame"></p>
             </div>
           </div>
         </div>

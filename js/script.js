@@ -10,6 +10,7 @@ var params = {
   papier: 1,
   rock: 2,
   scissors: 3,
+  playerName: 'You',
   progress: []
 };
 
@@ -17,11 +18,15 @@ window.onload=function() {
     // New Game
   document.getElementById('newGameBTN').addEventListener('click', function(){
     params.progress.length  = 0;
-    params.howManyPoints = window.prompt('Points for a win');
+    document.getElementById('modal-overlay-new-game').classList.add("show");
+    document.getElementById('modal-new-game').classList.add("show");
+    //params.howManyPoints = window.prompt('Points for a win');
     // Error Check
     if(params.howManyPoints===null || params.howManyPoints==='' || isNaN(params.howManyPoints)) {
-      document.getElementById("roundsToWin").innerHTML = 'Something went wrong. Try again.';
+      document.getElementById("errorInfoNewGame").innerHTML = 'Incorrect points input. Enter the number of points correctly. Otherwise, the team R will think that you are scared! Try again.';
       params.error=true;
+      document.getElementById('modal-overlay-new-game').classList.add('show');
+      document.getElementById('modal-new-game').classList.add('show');
     }
     else {
       // CSS Animation
@@ -156,16 +161,16 @@ function playerMove(playerChoice) {
 };
 // Player Win
 function playerWin () {
-  output.insertAdjacentHTML('afterEnd', 'YOU WON THE ENTIRE GAME!!!');
-  document.getElementById('winnerheder').innerHTML = '<p>YOU WON THE ENTIRE GAME!!!<p>';
+  output.insertAdjacentHTML('afterEnd', params.playerName +' WON THE ENTIRE GAME!!!');
+  document.getElementById('winnerheder').innerHTML = params.playerName +' won the entire game!<p>';
   creatSummaryGameTable ();
   document.getElementById('modal-overlay').classList.add("show");
   document.getElementById('modal-statistic').classList.add("show");
 };
 // Player Lose
 function  playerLose () {
-  output.insertAdjacentHTML('afterEnd', 'YOU LOSE THE ENTIRE GAME!!!');
-  document.getElementById('winnerheder').innerHTML = '<p>YOU LOST THE ENTIRE GAME!!!</p>';
+  output.insertAdjacentHTML('afterEnd', params.playerName +' LOSE THE ENTIRE GAME!!!');
+  document.getElementById('winnerheder').innerHTML = params.playerName +' lost entire game!</p>';
   creatSummaryGameTable ();
   document.getElementById('modal-overlay').classList.add("show");
   document.getElementById('modal-statistic').classList.add("show");
@@ -199,13 +204,13 @@ function computerMoveText (move) {
 // Player Move In Game (text for player)
 function playerMoveText (move) {
   if (move==1) {
-    output.insertAdjacentHTML('afterEnd', 'you played PAPIER <br>');
+    output.insertAdjacentHTML('afterEnd', params.playerName +' played PAPIER <br>');
   }
   else if (move==2) {
-    output.insertAdjacentHTML('afterEnd', 'you played ROCK <br>');
+    output.insertAdjacentHTML('afterEnd', params.playerName +' played ROCK <br>');
   }
   else if (move==3) {
-    output.insertAdjacentHTML('afterEnd', 'you played SCISSORS <br>');
+    output.insertAdjacentHTML('afterEnd', params.playerName +' played SCISSORS <br>');
   }
 };
 //Check points before player Move
@@ -253,10 +258,22 @@ var allPlayerMoveClasses = document.querySelectorAll('.player-move');
   };
 //New Game Modal
 function newGameModal () {
-      var nick = document.getElementById('nickModal').value;
-      console.log(nick);
-      var rounds = document.getElementById('roundsModal').value;
-      console.log(rounds);
+      params.playerName = document.getElementById('nickModal').value;
+        if (params.playerName == '') {
+          params.playerName= 'You';
+        }
+      console.log(params.playerName);
+      var points = document.getElementById('roundsModal').value;
+      params.howManyPoints = points;
+      console.log(points);
+      if(params.howManyPoints===null || params.howManyPoints==='' || isNaN(params.howManyPoints)) {
+        document.getElementById("errorInfoNewGame").innerHTML = 'Incorrect points input.<br> Enter the number of points correctly. <br>Otherwise, the team R will <br>think that you are scared! <br>Try again.';
+        params.error=true;
+      }
+      else {
+      document.getElementById('modal-overlay-new-game').classList.remove('show');
+      document.getElementById('modal-new-game').classList.remove('show');
+      }
       // nickModal.value
 }
 //Summary Game Modal
