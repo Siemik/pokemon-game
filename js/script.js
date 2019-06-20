@@ -20,23 +20,6 @@ window.onload=function() {
     params.progress.length  = 0;
     document.getElementById('modal-overlay-new-game').classList.add("show");
     document.getElementById('modal-new-game').classList.add("show");
-    //params.howManyPoints = window.prompt('Points for a win');
-    // Error Check
-    if(params.howManyPoints===null || params.howManyPoints==='' || isNaN(params.howManyPoints)) {
-      document.getElementById("errorInfoNewGame").innerHTML = 'Incorrect points input. Enter the number of points correctly. Otherwise, the team R will think that you are scared! Try again.';
-      params.error=true;
-      document.getElementById('modal-overlay-new-game').classList.add('show');
-      document.getElementById('modal-new-game').classList.add('show');
-    }
-    else {
-      // CSS Animation
-      var teamRocketAnimation = document.getElementById("imgTeamR");
-      teamRocketAnimation.classList.add("transform-active-teamRocket");
-      var ashAnimation = document.getElementById("imgAsh");
-      ashAnimation.classList.add("transform-active-ash");
-      var headerAnimation = document.getElementById("headerStart");
-      headerAnimation.classList.add("onOff");
-      // refresh
       // round
       params.round = 0;
       document.getElementById("nrOfRounds").innerHTML = params.round;
@@ -53,7 +36,6 @@ window.onload=function() {
       showRockBTNs.classList.remove("onOff");
       showPapierBTNs.classList.remove("onOff");
       showScissorsBTNs.classList.remove("onOff");
-    }
 });
 };
 
@@ -267,33 +249,37 @@ function newGameModal () {
       console.log(points);
       if(params.howManyPoints===null || params.howManyPoints==='' || isNaN(params.howManyPoints)) {
         document.getElementById("errorInfoNewGame").innerHTML = 'Incorrect points input.<br> Enter the number of points correctly. <br>Otherwise, the team R will <br>think that you are scared! <br>Try again.';
-        params.error=true;
       }
       else {
+      document.getElementById("errorInfoNewGame").innerHTML = ''
       document.getElementById('modal-overlay-new-game').classList.remove('show');
       document.getElementById('modal-new-game').classList.remove('show');
       document.getElementById("roundsToWin").innerHTML = 'The fight lasts up to ' + params.howManyPoints + ' points';
+      var teamRocketAnimation = document.getElementById("imgTeamR");
+      teamRocketAnimation.classList.add("transform-active-teamRocket");
+      var ashAnimation = document.getElementById("imgAsh");
+      ashAnimation.classList.add("transform-active-ash");
+      var headerAnimation = document.getElementById("headerStart");
+      headerAnimation.classList.add("onOff");
       }
-      // nickModal.value
 }
 //Summary Game Modal
   var showModal = function(event){
 		event.preventDefault();
 		document.querySelector('#modal-overlay').classList.add('show');
+    document.querySelector('#modal-overlay-new-game').classList.add('show');
 	};
-	var modalLinks = document.querySelectorAll('.show-modal');
-	for(var i = 0; i < modalLinks.length; i++){
-		modalLinks[i].addEventListener('click', showModal);
-	}
 	var hideModal = function(event){
 		event.preventDefault();
 		document.querySelector('#modal-overlay').classList.remove('show');
+    document.querySelector('#modal-overlay-new-game').classList.remove('show');
 	};
 	var closeButtons = document.querySelectorAll('.modal .close');
 	for(var i = 0; i < closeButtons.length; i++){
 		closeButtons[i].addEventListener('click', hideModal);
 	}
 	document.querySelector('#modal-overlay').addEventListener('click', hideModal);
+  document.querySelector('#modal-overlay-new-game').addEventListener('click', hideModal);
 	var modals = document.querySelectorAll('.modal');
 
 	for(var i = 0; i < modals.length; i++){
