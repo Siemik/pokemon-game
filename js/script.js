@@ -248,7 +248,7 @@ function newGameModal () {
       params.howManyPoints = points;
       console.log(points);
       if(params.howManyPoints===null || params.howManyPoints==='' || isNaN(params.howManyPoints)) {
-        document.getElementById("errorInfoNewGame").innerHTML = 'Incorrect points input.<br> Enter the number of points correctly. <br>Otherwise, the team R will <br>think that you are scared! <br>Try again.';
+        document.getElementById("errorInfoNewGame").innerHTML = 'Enter number of points correctly. <br><b>Otherwise, the team R will <br>think that you are scared! </b>';
       }
       else {
       document.getElementById("errorInfoNewGame").innerHTML = ''
