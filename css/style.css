@@ -1,6 +1,6 @@
 body { color: white; font-family: 'VT323', monospace; background-image: linear-gradient(0deg, #e1f9e1 50%, #f5fbff 83%, #b8d8ed 93%); margin: 0; padding: 0; }
 
-.container { background-image: url("http://serwer1816707.home.pl/strip.png"); background-repeat: repeat-y; background-size: 100% 20px; height: 100vh; width: 100vw; }
+.container { background-image: url(../images/strip.png); background-repeat: repeat-y; background-size: 100% 20px; height: 100vh; width: 100vw; }
 
 #headerStart { font-size: 40px; color: #C05C4D; text-align: center; }
 
@@ -18,9 +18,9 @@ body { color: white; font-family: 'VT323', monospace; background-image: linear-g
 
 .transform-active-ash { transform: translateX(1050px); }
 
-#bottomMenu { background-color: #E0E5E8; position: fixed; left: 0; right: 0; display: flex; display: -webkit-flex; bottom: 0; height: 200px; width: calc(100vw - 12px); border: 6px double black; border-radius: 5px; }
+#bottomMenu { background-color: #E0E5E8; position: fixed; left: 0; right: 0; display: -ms-flexbox; display: flex; display: -webkit-flex; bottom: 0; height: 200px; width: calc(100vw - 12px); border: 6px double black; border-radius: 5px; }
 
-.note { position: relative; flex: 1; order: 1; text-align: center; font-size: 25px; color: black; box-sizing: border-box; }
+.note { position: relative; -ms-flex: 1; flex: 1; -ms-flex-order: 1; order: 1; text-align: center; font-size: 25px; color: black; box-sizing: border-box; }
 
 .rounds, .punctation { line-height: 1px; font-size: 30px; }
 
@@ -30,11 +30,11 @@ body { color: white; font-family: 'VT323', monospace; background-image: linear-g
 
 #boldLine { border: 1px solid black; margin: 0 5px; display: none; }
 
-.buttons { display: -webkit-flex; display: flex; flex-direction: column; flex: 1; order: 2; box-sizing: border-box; }
+.buttons { display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; -ms-flex: 1; flex: 1; -ms-flex-order: 2; order: 2; box-sizing: border-box; }
 
-.firstLine, .secondLine { display: -webkit-flex; flex: 2; order: 1; align-content: stretch; }
+.firstLine, .secondLine { display: -webkit-flex; -ms-flex: 2; flex: 2; -ms-flex-order: 1; order: 1; -ms-flex-line-pack: stretch; align-content: stretch; }
 
-.buttons button { padding: 20px 40px; background-color: #C05C4D; color: white; flex: 1; margin: 5px; border-radius: 8px; font-family: 'VT323', monospace; font-size: 40px; text-shadow: 2px 2px black; }
+.buttons button { padding: 20px 40px; background-color: #C05C4D; color: white; -ms-flex: 1; flex: 1; margin: 5px; border-radius: 8px; font-family: 'VT323', monospace; font-size: 40px; text-shadow: 2px 2px black; }
 
 .buttons button:hover { background-color: #ca776a; }
 
@@ -77,7 +77,7 @@ body { color: white; font-family: 'VT323', monospace; background-image: linear-g
 .modal #winnerheder { font-size: 30px; }
 
 @media (max-width: 800px) { .buttons button { font-size: 30px; padding: 2px 2px; }
-  .note { display: inline-block; flex: 1; order: 1; font-size: 15px; }
+  .note { display: inline-block; -ms-flex: 1; flex: 1; -ms-flex-order: 1; order: 1; font-size: 15px; }
   .rounds, .punctation { line-height: 0px; font-size: 15px; }
   .rounds { font-size: 20px; }
   .rounds > p { margin: 10px; }
